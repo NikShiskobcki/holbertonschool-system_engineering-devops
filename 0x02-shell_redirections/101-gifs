@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name \*.gif -print0 |sort LC_ALL=C
+find . -type f -name \*.gif -print0 |export LC_ALL=C|sort
