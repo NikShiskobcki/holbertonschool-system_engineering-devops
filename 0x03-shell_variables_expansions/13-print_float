@@ -1,2 +1,2 @@
 #!/bin/bash
-printf  %15.2f $NUM
+echo $NUM | printf %.2f 
