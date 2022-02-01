@@ -1,2 +1,2 @@
 #!/bin/bash
-$((water#$STIR)) |$((bestchol#(($WATER+$STIR))))
+echo $((water#$STIR)) |echo $((bestchol#(($WATER+$STIR))))
