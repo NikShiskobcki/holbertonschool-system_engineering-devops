@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# install nginx
+
+apt-get update
+apt-get install nginx -y
+
+echo "Hello World" > /var/www/html/index.html
+printf %s "server {
+    listen 80;
+    listen [::]:80;
+    root   /var/www/html;
+    index  index.html;
+    location /redirect_me {
+	return https://www.youtube.com/watch?v=QH2-TGUlwu4 301;
+}
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
