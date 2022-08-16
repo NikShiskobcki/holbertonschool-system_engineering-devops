@@ -10,9 +10,10 @@ printf %s "server {
     listen [::]:80;
     root   /var/www/html;
     index  index.html;
+    
     location /redirect_me {
-	return https://www.youtube.com/watch?v=QH2-TGUlwu4 301;
-}
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
 }" > /etc/nginx/sites-available/default
 
 service nginx restart
