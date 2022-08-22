@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
-# configuring nginx
+# install nginx
+
 apt-get update
-apt-get -y install nginx
-sed -i "/server_name _;/a add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-available/default
+apt-get install nginx -y
+
+echo "Hello World" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/5-design_a_beautiful_404_page.html
+printf %s "server {
+    listen 80;
+    listen [::]:80;
+    add_header X-Served-By $HOSTNAME;
+    root   /var/www/html;
+    index  index.html;
+    
+    location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    error_page 404 /5-design_a_beautiful_404_page.html;
+   
+}" > /etc/nginx/sites-available/default
+
 service nginx restart
