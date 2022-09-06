@@ -18,7 +18,7 @@ if __name__ == '__main__':
         if task['completed'] is True:
             tasksDone += 1
 
-    print("Employee {} is done with tasks({}/{})".format(employee_name,
+    print("Employee {} is done with tasks({}/{}):".format(employee_name,
                                                          tasksDone, taskCount))
     for task in tasks:
         if task['completed'] is True:
