@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""task 0"""
+"""task 1"""
+import csv
 import requests
 from sys import argv
 
@@ -9,11 +10,8 @@ employee_username = employee['username']
 
 tasks = requests.get(api + "todos/", params={'userId': argv[1]}).json()
 
-data = ""
 filename = argv[1] + ".cvs"
 with open(filename, 'w') as f:
+    writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL)
     for task in tasks:
-        data = data + "\"" + argv[1] + "\",\"" + \
-               employee_username + "\",\"" + \
-               str(task['completed']) + "\",\"" + task['title'] + "\"\n"
-    f.write(data)
+        writer.writerow([argv[1], employee_username, task['completed'], task['title']])
