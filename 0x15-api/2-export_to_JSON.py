@@ -18,8 +18,8 @@ if __name__ == "__main__":
     lst = []
     for task in tasks:
         dictAux = {}
-        dictAux["task"] = item.get('title')
-        dictAux["completed"] = item.get('completed')
+        dictAux["task"] = task['title']
+        dictAux["completed"] = task['completed']
         dictAux["username"] = employee_username
         lst.append(dictAux)
     aux = {}
