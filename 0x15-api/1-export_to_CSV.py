@@ -13,7 +13,7 @@ if __name__ == "__main__":
     tasks = requests.get(api + "todos/", params={'userId': argv[1]}).json()
 
     filename = argv[1] + ".cvs"
-    with open(filename, 'w') as f:
+    with open(filename, 'w+') as f:
         writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL)
         for task in tasks:
             writer.writerow([argv[1], employee_username,
